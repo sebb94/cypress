@@ -1,12 +1,12 @@
 {
   "dependencies": {
     "cypress": "^11.2.0",
+    "cypress-xpath": "^2.0.1",
     "typescript": "^4.9.3"
   },
   "name": "learn_cypress_10_",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "cypress:run": "cypress run --e2e --browser chrome --spec cypress/e2e/current.cy.ts",
     "cypress:run:dev": "cypress run --e2e --browser chrome --config baseUrl=https://dev.google.com",
