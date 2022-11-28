@@ -4,7 +4,7 @@ export default defineConfig({
   "video": false,
   "screenshotOnRunFailure": false,
   e2e: {
-    baseUrl: "https://www.olx.pl",
+    baseUrl: "http://uitestingplayground.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

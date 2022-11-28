@@ -1,18 +1,25 @@
 describe('visit', () => {
   it('visit', () => {
-    cy.visit('/d/elektronika/fotografia/')
+    cy.visit('/textinput')
     //yield
     cy.url().then(url => {
       cy.log(`URL ${url}`)
-      expect(url).to.contains('/fotografia')
+      expect(url).to.contains('textinput')
     }) 
   })
 
   it('title validation', () => {
     cy.title().then(title => {
       cy.log(title)
-      expect(title).to.contain('Używane')
-      expect(title).to.be.eq('Używane cyfrówki, aparaty cyfrowe, fotograficzne na sprzedaż Ogłoszenia OLX.pl')
+      expect(title).to.contain('Input')
+      expect(title).to.be.eq('Text Input')
     })
+  });
+
+  it('challenge', () => {
+    cy.get('input#newButtonName').type('Hello!')
+    cy.get('button#updatingButton')
+    .click()
+    .should('have.text','Hello!')
   });
 })
