@@ -8,7 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "cypress:run": "cypress run --e2e --browser chrome",
+    "cypress:run": "cypress run --e2e --browser chrome --spec cypress/e2e/current.cy.ts",
     "cypress:run:dev": "cypress run --e2e --browser chrome --config baseUrl=https://dev.google.com",
     "cypress:open": "cypress open --e2e --browser chrome"
   },
