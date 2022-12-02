@@ -37,7 +37,7 @@ describe("Click Challenge", () => {
             if(cell.text().includes('%')){
                 let chromeCpu = cell.text()
                 cy.get('.bg-warning').should('include.text',chromeCpu)
-        }
+            }
         });
     });
   });
