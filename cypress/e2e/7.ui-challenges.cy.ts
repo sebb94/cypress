@@ -12,7 +12,7 @@ describe("Click Challenge", () => {
     });
   });
   
-  describe.skip("Hover challenge", () => {
+  describe("Hover challenge", () => {
     beforeEach(() => {
       cy.visit("/mouseover");
     });
@@ -29,25 +29,15 @@ describe("Click Challenge", () => {
       cy.visit("/dynamictable");
     });
     it("Chrome CPU Test", () => {
-      cy.get(`div[role="row"] span`).each(($cell) => {
-        if ($cell.text().includes("Chrome")) {
-          cy.log(`I have found the ${$cell.text()} row!`);
-          let chromeRowValues: string[] = [];
-          chromeRowValues.push($cell.next().text());
-          chromeRowValues.push($cell.next().next().text());
-          chromeRowValues.push($cell.next().next().next().text());
-          chromeRowValues.push($cell.next().next().next().next().text());
-          cy.log("Chrome row values", chromeRowValues);
-          chromeRowValues.forEach((chromeValue) => {
-            if (chromeValue.includes("%")) {
-              cy.log(chromeValue);
-              cy.get(".bg-warning").should(
-                "have.text",
-                `Chrome CPU: ${chromeValue}`
-              );
-            }
-          });
+        cy.contains('span[role="cell"]','Chrome')
+        .should('be.visible')
+        .parent()
+        .find('span[role="cell"]')
+        .each(cell =>{
+            if(cell.text().includes('%')){
+                let chromeCpu = cell.text()
+                cy.get('.bg-warning').should('include.text',chromeCpu)
         }
-      });
+        });
     });
   });
