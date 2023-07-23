@@ -1,11 +1,12 @@
 describe('empty spec', () => {
 
   before(() => {
-    cy.visit('https://example.cypress.io')
+    cy.log('before each!!')
   });
 
   beforeEach(() => {
-    cy.log('before each!!')
+    cy.visit('https://example.cypress.io')
+    
   });
 
   afterEach(() => {

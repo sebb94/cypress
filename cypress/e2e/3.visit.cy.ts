@@ -1,6 +1,9 @@
 describe('visit', () => {
-  it('visit', () => {
+
+  beforeEach(() => {
     cy.visit('/textinput')
+  });
+  it('visit', () => {
     //yield
     cy.url().then(url => {
       cy.log(`URL ${url}`)
