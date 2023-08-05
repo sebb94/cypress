@@ -16,8 +16,12 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import "cypress-real-events";
+import "cypress-file-upload"
+require('cy-verify-downloads').addCustomCommand();
 require('cypress-xpath');
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-Cypress.on('uncaught:exception', () => false);
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+})
