@@ -14,14 +14,41 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import "cypress-real-events";
-import "cypress-file-upload"
-require('cy-verify-downloads').addCustomCommand();
-require('cypress-xpath');
+import "./commands";
+import "./exceptions";
+import "cypress-real-events/support";
+import "cypress-mochawesome-reporter/register";
+require('@cypress/xpath');
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-})
+// beforeEach(() => {
+//   //   cy.log("Hello I am a GLOBAL Before Each Hook")
+//   cy.session("mySession", () => {
+//     cy.visit(`${Cypress.env("demoQA")}/login`);
+//     cy.get("#userName").type("test");
+//     cy.get("#password").type("Test1234*");
+//     cy.get("#login").click();
+//     cy.url().should("contain", "profile");
+//   });
+// ----------- STUDENT QUESTION ------------------
+// cy.log("Global Hook Here");
+//   cy.log("Test skip validation").then(() => {
+//     if (Cypress.currentTest.title.includes("No Login")) {
+//       cy.log("Skipping login action");
+//     } else {
+//       cy.log("Doing Login");
+//     }
+//   });
+// ----------- *************** ------------------
+// });
+
+// after(() => {
+//   cy.log("I am an global after hook");
+//   cy.clearCookies();
+//   cy.getCookies().then((cookies) => {
+//     cy.log("Cookies: ", cookies);
+//     expect(cookies).to.have.length(0);
+//   });
+// });

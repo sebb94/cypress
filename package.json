@@ -1,20 +1,6 @@
 {
-  "dependencies": {
-    "cy-verify-downloads": "^0.1.15",
-    "cypress": "12.5.1",
-    "cypress-file-upload": "^5.0.8",
-    "cypress-real-events": "^1.7.4",
-    "cypress-xpath": "^2.0.1",
-    "typescript": "^4.9.3"
-  },
-  "name": "cypress",
+  "name": "cypress-course",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "cypress:run": "cypress run --e2e --browser chrome",
-    "cypress:run:dev": "cypress run --e2e --browser chrome --config baseUrl=https://dev.google.com",
-    "cypress:open": "cypress open --e2e --browser chrome --env env1='jeden',env2='dwa'"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebb94/cypress.git"
@@ -25,5 +11,32 @@
     "url": "https://github.com/sebb94/cypress/issues"
   },
   "homepage": "https://github.com/sebb94/cypress#readme",
-  "description": ""
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:run": "cypress run --e2e --browser chrome",
+    "cypress:run:dev": "cypress run --e2e --browser chrome --config baseUrl=https://dev.google.com",
+    "cypress:open": "cypress open --e2e --browser chrome --env env1='jeden',env2='dwa'"
+  },
+  "keywords": [
+    "cypress",
+    "javascript",
+    "typescript",
+    "testing"
+  ],
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.3",
+    "@faker-js/faker": "^7.6.0",
+    "@testing-library/cypress": "^9.0.0",
+    "cy-verify-downloads": "^0.1.11",
+    "cypress": "12.5.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-real-events": "^1.7.6",
+    "@cypress/xpath": "^2.0.3",
+    "mysql": "github:mysqljs/mysql",
+    "node-xlsx": "^0.21.0",
+    "playwright-webkit": "^1.29.1",
+    "typescript": "^4.9.4"
+  }
 }

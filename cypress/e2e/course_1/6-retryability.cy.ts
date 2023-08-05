@@ -11,10 +11,9 @@ describe("Retry ability demo", () => {
       "Data calculated on the client side."
     );
   });
-  it.only("progress bar scenario", () => {
+  it("progress bar scenario", () => {
     cy.visit("/progressbar");
     cy.get("#startButton").click();
-    cy.get("#progressBar", { timeout: 30000 }).should("have.text", "75%");
-    cy.get('#stopButton').click()
+    cy.get("#progressBar", { timeout: 30000 }).should("have.text", "100%");
   });
 });
