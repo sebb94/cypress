@@ -9,8 +9,11 @@ export default defineConfig({
       // implement node event listeners here
     },
     env: {
-      "env1" : "env_one",
-      "env2" : "env_two"
+      env1 : "env_one",
+      env2 : "env_two",
+      demoQA: "https://demoqa.com/",
+      theInternet: "https://the-internet.herokuapp.com",
+      angular: "https://globalsqa.com"
     }
   },
 });
