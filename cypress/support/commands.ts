@@ -13,7 +13,6 @@ require("cy-verify-downloads").addCustomCommand();
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
-//
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
@@ -34,10 +33,20 @@ declare global {
     interface Chainable {
       login(email: string, password: string): Chainable<void>;
       safeLogin(email: string, password: string): Chainable<void>;
+      login(username: string, password: string): Chainable<void>;
+      conduitLogin(username: string, password: string): Chainable<void>;
       parseXlsx(inputFile: any): any;
     }
   }
 }
+
+Cypress.Commands.add("conduitLogin", function(email,password){
+  cy.visit('/')
+  cy.contains('Sign in').click()
+  cy.get('input[type="email"]').type(email)
+  cy.get('input[type="password"]').type(password)
+  cy.get('button[type="submit"]').click()
+})
 
 Cypress.Commands.add("login", (username: string, password: string) => {
   cy.get("#userName").type(username);
