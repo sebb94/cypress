@@ -1,0 +1,50 @@
+<html>
+
+<head>
+</head>
+
+<body>
+   <input id="val1" />
+   <br/>
+   <input id="val2" />
+   <br/>
+   <br/>
+   <button id="addbtn">Add(+)</td>
+   <button id="subbtn">Sub(-)</td>
+   <button id="mulbtn">Mul(*)</td>
+    <br/>
+   <p id="Result"></p>
+</body>
+
+<script type=text/javascript>
+     document.getElementById("addbtn").onclick=add2Numbers; 
+     document.getElementById("subbtn").onclick=substract2Numbers; 
+     document.getElementById("mulbtn").onclick=multiply2Numbers; 
+    
+     function add2Numbers()
+     {
+     let a = document.getElementById("val1").value;
+     let b = document.getElementById("val2").value;
+     let res=parseInt(a)+parseInt(b);
+    document.getElementById("Result").innerHTML=res; 
+    } 
+
+    function substract2Numbers()
+     {
+     let a = document.getElementById("val1").value;
+     let b = document.getElementById("val2").value;
+     let res=parseInt(a)-parseInt(b);
+    document.getElementById("Result").innerHTML=res; 
+    } 
+
+    function multiply2Numbers()
+     {
+     let a = document.getElementById("val1").value;
+     let b = document.getElementById("val2").value;
+     let res=parseInt(a)*parseInt(b);
+    document.getElementById("Result").innerHTML=res; 
+    } 
+
+</script>
+
+</html>

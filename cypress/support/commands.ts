@@ -33,12 +33,36 @@ declare global {
     interface Chainable {
       login(email: string, password: string): Chainable<void>;
       safeLogin(email: string, password: string): Chainable<void>;
+      loginapp(email: string, password: string): Chainable<void>;
       login(username: string, password: string): Chainable<void>;
       conduitLogin(username: string, password: string): Chainable<void>;
+      getIframe(iframe: any): any;
+      clickLink(label: any): any;
       parseXlsx(inputFile: any): any;
     }
   }
 }
+
+Cypress.Commands.add('getIframe', (iframe)=>{
+  return cy.get(iframe)
+  .its('0.contentDocument.body')
+  .should('be.visible')
+  .then(cy.wrap);
+})
+
+
+//Custom command for Clicking on link using label
+Cypress.Commands.add('clickLink', (label) =>{
+   cy.get('a').contains(label).click();
+})
+
+Cypress.Commands.add("loginapp", (email, password) => {
+  cy.get('#Email').clear();
+  cy.get('#Email').type(email);
+  cy.get('#Password').clear();
+  cy.get('#Password').type(password);
+  cy.get("button[class='button-1 login-button']").click();
+});
 
 Cypress.Commands.add("conduitLogin", function(email,password){
   cy.visit('/')

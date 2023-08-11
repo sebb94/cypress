@@ -1,0 +1,83 @@
+function student()
+{
+    this.name="John";
+    this.gender="male";
+}
+
+let stu1=new student();
+stu1.age=35;
+console.log(stu1.age); //35
+
+let stu2=new student();
+console.log(stu2.age); //undefined
+
+--------------------------------------------------------------------------
+If we want to add new properties at later stage to a function, we can take the help of prototype.
+
+Prototype is an obect that is associated with every function & Object by Default.
+
+How to use prototype
+-----
+Example1: Adding new property to the function
+--------------------
+function student()
+{
+    this.name="John";
+    this.gender="male";
+}
+
+student.prototype.age=35;
+
+let stu1=new student();
+console.log(stu1.age); //35
+
+let stu2=new student();
+console.log(stu2.age); //35
+
+Example2: Adding new property to the class
+----------------------
+class Employee
+{
+    constructor(eid,ename)
+    {
+        this.eid=eid;
+        this.ename=ename;
+    }
+}
+
+Employee.prototype.sal=50000;
+
+let emp1obj1=new Employee(101,"Smith");
+//emp1obj1.sal="50000";
+console.log(emp1obj1.eid,emp1obj1.ename,emp1obj1.sal);
+
+let emp1obj2=new Employee(102,"John");
+console.log(emp1obj2.eid,emp1obj2.ename,emp1obj2.sal);
+
+
+Example3: Add new function to the class
+---------
+class Employee
+{
+    constructor(eid,ename)
+    {
+        this.eid=eid;
+        this.ename=ename;
+    }
+}
+
+Employee.prototype.sal=50000;
+
+Employee.prototype.display=function()
+{
+    console.log(this.eid,this.ename,this.sal);
+}
+
+let emp1obj1=new Employee(101,"Smith");
+emp1obj1.display();
+
+
+let emp1obj2=new Employee(102,"John");
+emp1obj2.display();
+
+
